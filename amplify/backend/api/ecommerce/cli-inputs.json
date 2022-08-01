@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "ecommerce",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/home/ohimjosh/programming/ecommerce/amplify/backend/api/ecommerce/schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authecommerce2340f94a"
+    }
+  }
+}
