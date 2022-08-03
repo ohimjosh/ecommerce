@@ -22,7 +22,9 @@
           "stripeTestKey": "pk_test_51LSVEtG4WkRhbNCrNerUJuT8yf4nzd3YMigZexVVdWn3XYmrNeDaF7xEzTtKgJrK1FEdCmrQLtmfH5nIIyHi2soO000gCVqD8F"
         },
         "ecommerce16b38222": {
-          "stripeTestKey": "pk_test_51LSVEtG4WkRhbNCrNerUJuT8yf4nzd3YMigZexVVdWn3XYmrNeDaF7xEzTtKgJrK1FEdCmrQLtmfH5nIIyHi2soO000gCVqD8F"
+          "stripeTestKey": "pk_test_51LSVEtG4WkRhbNCrNerUJuT8yf4nzd3YMigZexVVdWn3XYmrNeDaF7xEzTtKgJrK1FEdCmrQLtmfH5nIIyHi2soO000gCVqD8F",
+          "deploymentBucketName": "amplify-ecommerce-dev-165155-deployment",
+          "s3Key": "amplify-builds/ecommerce16b38222-542f42764f6434473862-build.zip"
         }
       }
     }
