@@ -1,0 +1,20 @@
+{
+  "resourceName": "productsbucket",
+  "policyUUID": "d2f22b10",
+  "bucketName": "ecommerce0bab82b59f91469784b14d7df10299d6",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "READ"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {
+    "admin": [
+      "CREATE_AND_UPDATE",
+      "READ",
+      "DELETE"
+    ]
+  }
+}

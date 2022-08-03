@@ -1,0 +1,10 @@
+{
+  "permissions": {},
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "stripeTestKey",
+      "environmentVariableName": "STRIPE_TEST_KEY"
+    }
+  ]
+}

@@ -13,7 +13,14 @@
     },
     "categories": {
       "auth": {
-        "ecommerce2340f94a": {}
+        "ecommerce2340f94a": {},
+        "userPoolGroups": {},
+        "true": {}
+      },
+      "function": {
+        "ecommerce670ee68a": {
+          "stripeTestKey": "pk_test_51LSVEtG4WkRhbNCrNerUJuT8yf4nzd3YMigZexVVdWn3XYmrNeDaF7xEzTtKgJrK1FEdCmrQLtmfH5nIIyHi2soO000gCVqD8F"
+        }
       }
     }
   }

@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "ecommerce2340f94a_identitypool_2340f94a",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "ecomme2340f94a",
     "userPoolName": "ecommerce2340f94a_userpool_2340f94a",
     "autoVerifiedAttributes": [
