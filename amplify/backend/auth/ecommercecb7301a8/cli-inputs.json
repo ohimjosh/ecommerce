@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "ecommerce2340f94a_identitypool_2340f94a",
+    "identityPoolName": "ecommercecb7301a8_identitypool_cb7301a8",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "ecomme2340f94a",
-    "userPoolName": "ecommerce2340f94a_userpool_2340f94a",
+    "resourceNameTruncated": "ecommecb7301a8",
+    "userPoolName": "ecommercecb7301a8_userpool_cb7301a8",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,15 +31,13 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "ecomme2340f94a_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "ecommecb7301a8_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "2340f94a",
-    "resourceName": "ecommerce2340f94a",
+    "sharedId": "cb7301a8",
+    "resourceName": "ecommercecb7301a8",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
-    "userPoolGroupList": [
-      "admin"
-    ],
+    "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true,

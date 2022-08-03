@@ -17,6 +17,13 @@
             "Type": "String"
         }
         
+        ,
+        "stripeTestKey": {
+            "Type": "String"
+        }
+        
+        
+        
     
     
     
@@ -51,13 +58,13 @@
             "FunctionName": {
                 "Fn::If": [
                     "ShouldNotCreateEnvResources",
-                    "ecommerce302d4991",
+                    "ecommerce16b38222",
                     {
 
                         "Fn::Join": [
                             "",
                             [
-                                "ecommerce302d4991",
+                                "ecommerce16b38222",
                                 "-",
                                 {
                                     "Ref": "env"
@@ -68,7 +75,7 @@
                 ]
             },
             "Environment": {
-                "Variables" : {"ENV":{"Ref":"env"},"REGION":{"Ref":"AWS::Region"}}
+                "Variables" : {"ENV":{"Ref":"env"},"REGION":{"Ref":"AWS::Region"},"STRIPE_TEST_KEY":{"Ref":"stripeTestKey"}}
             },
             "Role": { "Fn::GetAtt": ["LambdaExecutionRole", "Arn"] },
             "Runtime": "nodejs14.x",
@@ -82,13 +89,13 @@
                 "RoleName": {
                     "Fn::If": [
                         "ShouldNotCreateEnvResources",
-                        "ecommerceLambdaRole72ef6697",
+                        "ecommerceLambdaRole582b079f",
                         {
 
                             "Fn::Join": [
                                 "",
                                 [
-                                    "ecommerceLambdaRole72ef6697",
+                                    "ecommerceLambdaRole582b079f",
                                     "-",
                                     {
                                         "Ref": "env"

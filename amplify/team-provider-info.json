@@ -14,11 +14,14 @@
     "categories": {
       "auth": {
         "ecommerce2340f94a": {},
-        "userPoolGroups": {},
-        "true": {}
+        "true": {},
+        "ecommercecb7301a8": {}
       },
       "function": {
         "ecommerce670ee68a": {
+          "stripeTestKey": "pk_test_51LSVEtG4WkRhbNCrNerUJuT8yf4nzd3YMigZexVVdWn3XYmrNeDaF7xEzTtKgJrK1FEdCmrQLtmfH5nIIyHi2soO000gCVqD8F"
+        },
+        "ecommerce16b38222": {
           "stripeTestKey": "pk_test_51LSVEtG4WkRhbNCrNerUJuT8yf4nzd3YMigZexVVdWn3XYmrNeDaF7xEzTtKgJrK1FEdCmrQLtmfH5nIIyHi2soO000gCVqD8F"
         }
       }

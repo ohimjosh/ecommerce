@@ -1,6 +1,8 @@
+
 /* Amplify Params - DO NOT EDIT
 	ENV
 	REGION
+	STRIPE_TEST_KEY
 Amplify Params - DO NOT EDIT */
 
 /**

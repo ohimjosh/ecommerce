@@ -2,7 +2,7 @@ type Product
   @model
   @auth(
     rules: [
-      { allow: public, providers: iam, operations: [read] }
+      { allow: public, provider: iam, operations: [read] }
       { allow: owner }
       { allow: groups, groups: ["admin"] }
     ]
