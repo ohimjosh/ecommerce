@@ -8,6 +8,7 @@ import { API, Storage } from 'aws-amplify'
 import { createProduct } from '../../src/graphql/mutations.js'
 
 
+
 import React from 'react'
 
 function CreateProductsPage({ signOut, user }) {

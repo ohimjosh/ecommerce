@@ -54,10 +54,12 @@ function HomePage() {
 	useEffect(() => {
 		async function fetchProducts() {
 			try {
+				
 				const { data } = await API.graphql({
 					query: listProducts,
 					authMode: 'AWS_IAM',
 				})
+				console.log(data);
 				const productData = data.listProducts.items
 				setProducts(productData)
 			} catch (e) {
