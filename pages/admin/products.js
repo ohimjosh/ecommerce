@@ -4,6 +4,9 @@ import {
 	TextField,
 	withAuthenticator,
 } from '@aws-amplify/ui-react'
+import { API, Storage } from 'aws-amplify'
+import { createProduct } from '../../src/graphql/mutations.js'
+
 
 import React from 'react'
 
@@ -18,6 +21,38 @@ function CreateProductsPage({ signOut, user }) {
 		const description = e.target.description.value
 
 		console.log({ name, price, displayImage, productFile, description })
+		
+		const publicResult = await Storage.put(
+			`productimages/${displayImage.name}`,
+			displayImage,
+			{ level: 'public', contentType: displayImage.type }
+		)
+		
+		const protectedResult = await Storage.put(
+			`${productFile.name}`,
+			productFile,
+			{
+				level: 'protected',
+				contentType: productFile.type,
+			}
+		)
+		
+		await API.graphql({
+			query: createProduct,
+			variables: {
+				input: {
+					name,
+					price: price * 100,
+					currency: 'USD',
+					product_data: {
+						metadata: { productFileKey: protectedResult.key },
+					},
+					image: `https://productkit143035-dev.s3.amazonaws.com/public/productimages/${publicResult.key}`,
+					description,
+				},
+			},
+		})
+		
 	}
 	return (
 		<>
@@ -29,13 +64,13 @@ function CreateProductsPage({ signOut, user }) {
 					<TextField
 						required
 						label="name"
-						placeholder="My cool product name"
+						placeholder=""
 						name={'name'}
 					/>
 					<TextField
 						required
 						label="description"
-						placeholder="Here's an awesome description"
+						placeholder=""
 						name={'description'}
 					/>
 					<TextField
@@ -71,4 +106,4 @@ function CreateProductsPage({ signOut, user }) {
 	)
 }
 
-export default CreateProductsPage
+export default withAuthenticator(CreateProductsPage)

@@ -13,6 +13,8 @@ import { API } from 'aws-amplify'
 import { useState, useEffect } from 'react'
 import { useShoppingCart, formatCurrencyString } from 'use-shopping-cart'
 import { AmplifyS3Image } from '@aws-amplify/ui-react/legacy'
+import { fetchCheckoutURL, listProducts } from '../src/graphql/queries.js'
+
 
 function HomePage() {
 	const theme = useTheme()
@@ -22,40 +24,66 @@ function HomePage() {
 			id: 1,
 			image: 'https://images.squarespace-cdn.com/content/v1/5fa351c31cd5476fd676138d/1638150089101-9EKBUEJBBLZBHDHKW7WL/IMG_2338b.jpg?format=1500w',
 			name: 'BLACKHOLE HOODIE',
-			description: 'custom raglan cut with cropped body',
+			description: 'custom raglan cut with cropped body ',
 			price: 8500,
 		},
 		{
 			id: 2,
-			image: 'https://images.squarespace-cdn.com/content/v1/5fa351c31cd5476fd676138d/1638150089101-9EKBUEJBBLZBHDHKW7WL/IMG_2338b.jpg?format=1500w',
-			name: 'BLACKHOLE HOODIE',
-			description: 'custom raglan cut with cropped body',
+			image: 'https://images.squarespace-cdn.com/content/v1/5fa351c31cd5476fd676138d/1638150333997-VYT1IF6E6C7H6GJZS9QJ/jdskldj.jpg?format=1500w',
+			name: 'GHOST GREY HOODIE',
+			description: 'custom raglan cut with cropped body ',
 			price: 8500,
 		},
 		{
 			id: 3,
-			image: 'https://images.squarespace-cdn.com/content/v1/5fa351c31cd5476fd676138d/1638150089101-9EKBUEJBBLZBHDHKW7WL/IMG_2338b.jpg?format=1500w',
-			name: 'BLACKHOLE HOODIE',
-			description: 'custom raglan cut with cropped body',
+			image: 'https://images.squarespace-cdn.com/content/v1/5fa351c31cd5476fd676138d/1643923152042-HJEVUM7YIAE6NUOKDIFI/JOON+BRW+HOODIE.jpg?format=1500w',
+			name: 'MOCHA BROWN HOODIE',
+			description: 'custom raglan cut with cropped body ',
 			price: 8500,
 		},
 		{
 			id: 4,
-			image: 'https://images.squarespace-cdn.com/content/v1/5fa351c31cd5476fd676138d/1638150089101-9EKBUEJBBLZBHDHKW7WL/IMG_2338b.jpg?format=1500w',
-			name: 'BLACKHOLE HOODIE',
-			description: 'custom raglan cut with cropped body',
+			image: 'https://images.squarespace-cdn.com/content/v1/5fa351c31cd5476fd676138d/1638150436754-0IQTMJ6LOMNY46PCZ755/IMG_23381.jpg?format=1500w',
+			name: 'MARS ORANGE HOODIE',
+			description: 'custom raglan cut with cropped body ',
 			price: 8500,
 		},
+		
 	])
 
 	useEffect(() => {
-		// fetch the products once they're here
+		async function fetchProducts() {
+			try {
+				const { data } = await API.graphql({
+					query: listProducts,
+					authMode: 'AWS_IAM',
+				})
+				const productData = data.listProducts.items
+				setProducts(productData)
+			} catch (e) {
+				console.error(e)
+			}
+		}
+	
+		fetchProducts()
 	}, [])
+	
 
 	const handleCheckout = async (e) => {
 		e.preventDefault()
-		// send the user to stripe checkout
+		const { data } = await API.graphql({
+			query: fetchCheckoutURL,
+			authMode: 'AWS_IAM',
+			variables: {
+				input: JSON.stringify(cartDetails),
+			},
+		}).catch((e) => console.log('the returned error', e))
+	
+		const { sessionId } = JSON.parse(data.fetchCheckoutURL)
+	
+		window.location.href = sessionId
 	}
+	
 
 	return (
 		<Flex direction="column">
